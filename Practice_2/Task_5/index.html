@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Maiden Name Field</title>
+</head>
+<body>
+    <input type="radio" name="sex" value="male" id="male_radio" checked /> Male
+    <input type="radio" name="sex" value="female" id="female_radio" /> Female
+    <label for="maiden_name">Maiden name:</label>
+    <input id="maiden_name" hidden />
+
+    <script>
+        let maleRadio = document.getElementById("male_radio");
+        let femaleRadio = document.getElementById("female_radio");
+        let maidenNameField = document.getElementById("maiden_name");
+
+        function toggleMaidenNameField() {
+            if (femaleRadio.checked) {
+                maidenNameField.hidden = false;  
+            } else {
+                maidenNameField.hidden = true;   
+                        }
+        }
+
+        maleRadio.addEventListener("click", toggleMaidenNameField);
+        femaleRadio.addEventListener("click", toggleMaidenNameField);
+
+        window.addEventListener("load", toggleMaidenNameField);
+    </script>
+</body>
+</html>
